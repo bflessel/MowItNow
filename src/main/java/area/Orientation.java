@@ -1,5 +1,7 @@
 package area;
 
+import exceptions.OrientationException;
+
 public class Orientation {
 
     private static final char NORTH = 'N';
@@ -8,7 +10,7 @@ public class Orientation {
     private static final char SOUTH = 'S';
     private char orientationCharacter;
 
-    Orientation(char orientationCharacter) throws OrientationException {
+    public Orientation(char orientationCharacter) throws OrientationException {
         if (!(String.valueOf(orientationCharacter).matches("[NSEW]?"))) {
             throw new OrientationException("this orientation doesn't exist :");
         }
@@ -68,6 +70,10 @@ public class Orientation {
                 break;
         }
         return newPosition;
+    }
+
+    String giveDirection() {
+        return String.valueOf(orientationCharacter);
     }
 
 

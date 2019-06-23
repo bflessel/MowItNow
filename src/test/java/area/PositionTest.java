@@ -2,6 +2,7 @@ package area;
 
 import com.pholser.junit.quickcheck.Property;
 import com.pholser.junit.quickcheck.runner.JUnitQuickcheck;
+import exceptions.OrientationException;
 import org.junit.runner.RunWith;
 
 import static org.junit.Assert.assertEquals;

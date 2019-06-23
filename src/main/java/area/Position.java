@@ -1,11 +1,11 @@
 package area;
 
-class Position {
+public class Position {
 
     private final int horizontalCoordinate;
     private final int verticalCoordinate;
 
-    Position(int horizontalCoordinate, int verticalCoordinate) {
+    public Position(int horizontalCoordinate, int verticalCoordinate) {
         this.horizontalCoordinate = horizontalCoordinate;
         this.verticalCoordinate = verticalCoordinate;
     }
@@ -25,6 +25,19 @@ class Position {
     Position moveWest() {
         return new Position(horizontalCoordinate-1,verticalCoordinate);
     }
+
+    String giveFormatedPosition(){
+        StringBuilder builder = new StringBuilder();
+
+        return builder.append(horizontalCoordinate).append(" ").append(verticalCoordinate)
+                .toString().trim();
+
+    }
+
+    boolean isInsideLawn(int horizontalSize, int verticalSize) {
+        return (horizontalCoordinate<= horizontalSize && verticalCoordinate<= verticalSize);
+    }
+
 
     @Override
     public boolean equals(Object o) {

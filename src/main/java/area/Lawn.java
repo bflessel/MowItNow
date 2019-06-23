@@ -1,14 +1,13 @@
 package area;
 
 import exceptions.LawnSizeException;
-import org.junit.Test;
 
-class Lawn {
+public class Lawn {
 
     private final int horizontalSize;
     private final int verticalSize;
 
-    Lawn(int horizontalSize, int verticalSize) throws LawnSizeException {
+    public Lawn(int horizontalSize, int verticalSize) throws LawnSizeException {
         if (horizontalSize < 0 || verticalSize < 0) {
             throw new LawnSizeException("A lawn size cannot be negative !");
         }
@@ -17,6 +16,10 @@ class Lawn {
         }
         this.horizontalSize = horizontalSize;
         this.verticalSize = verticalSize;
+    }
+
+    public boolean validate(OrientedPosition tmpPosition) {
+        return (tmpPosition.isInsideLawn(horizontalSize, verticalSize));
     }
 
     @Override
@@ -38,9 +41,6 @@ class Lawn {
     }
 
 
-    @Test(expected = LawnSizeException.class)
-    public void a_lawn_should_throw_an_Size_Exception_equals_given_two_zero_size() throws LawnSizeException {
-        Lawn lawn = new Lawn(0,0);
-    }
+
 
 }

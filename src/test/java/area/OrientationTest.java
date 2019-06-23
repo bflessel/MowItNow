@@ -1,5 +1,6 @@
 package area;
 
+import exceptions.OrientationException;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import org.junit.Assert;

@@ -38,5 +38,4 @@ public class LawnTest {
         Lawn lawn = new Lawn(0,0);
     }
 
-
 }
