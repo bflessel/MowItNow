@@ -2,6 +2,10 @@ package area;
 
 public class Orientation {
 
+    private static final char NORTH = 'N';
+    private static final char EAST = 'E';
+    private static final char WEST = 'W';
+    private static final char SOUTH = 'S';
     private char orientationCharacter;
 
     Orientation(char orientationCharacter) throws OrientationException {
@@ -13,17 +17,17 @@ public class Orientation {
 
     Orientation moveLeft() throws OrientationException {
         switch (orientationCharacter) {
-            case 'N':
-                orientationCharacter = 'W';
+            case NORTH:
+                orientationCharacter = WEST;
                 break;
-            case 'W':
-                orientationCharacter = 'S';
+            case WEST:
+                orientationCharacter = SOUTH;
                 break;
-            case 'S':
-                orientationCharacter = 'E';
+            case SOUTH:
+                orientationCharacter = EAST;
                 break;
-            case 'E':
-                orientationCharacter = 'N';
+            case EAST:
+                orientationCharacter = NORTH;
                 break;
         }
         return new Orientation(orientationCharacter);
@@ -31,20 +35,39 @@ public class Orientation {
 
     Orientation moveRight() throws OrientationException {
         switch (orientationCharacter) {
-            case 'N':
-                orientationCharacter = 'E';
+            case NORTH:
+                orientationCharacter = EAST;
                 break;
-            case 'W':
-                orientationCharacter = 'N';
+            case WEST:
+                orientationCharacter = NORTH;
                 break;
-            case 'S':
-                orientationCharacter = 'W';
+            case SOUTH:
+                orientationCharacter = WEST;
                 break;
-            case 'E':
-                orientationCharacter = 'S';
+            case EAST:
+                orientationCharacter = SOUTH;
                 break;
         }
         return new Orientation(orientationCharacter);
+    }
+
+    Position moveForward(Position position) {
+        Position newPosition = null;
+        switch (orientationCharacter) {
+            case EAST:
+                newPosition = position.moveEast();
+                break;
+            case WEST:
+                newPosition = position.moveWest();
+                break;
+            case NORTH:
+                newPosition = position.moveNorth();
+                break;
+            case SOUTH:
+                newPosition = position.moveSouth();
+                break;
+        }
+        return newPosition;
     }
 
 

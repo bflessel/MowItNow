@@ -19,6 +19,11 @@ public class OrientedPosition {
         return new OrientedPosition(position,orientation.moveRight());
     }
 
+    OrientedPosition moveForward(){
+
+        return new OrientedPosition(orientation.moveForward(position),orientation);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

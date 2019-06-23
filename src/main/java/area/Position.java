@@ -10,6 +10,22 @@ class Position {
         this.verticalCoordinate = verticalCoordinate;
     }
 
+    Position moveNorth() {
+        return new Position(horizontalCoordinate,verticalCoordinate+1);
+    }
+
+    Position moveSouth() {
+        return new Position(horizontalCoordinate,verticalCoordinate-1);
+    }
+
+    Position moveEast() {
+        return new Position(horizontalCoordinate+1,verticalCoordinate);
+    }
+
+    Position moveWest() {
+        return new Position(horizontalCoordinate-1,verticalCoordinate);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
