@@ -11,6 +11,43 @@ public class Orientation {
         this.orientationCharacter = orientationCharacter;
     }
 
+    Orientation moveLeft() throws OrientationException {
+        switch (orientationCharacter) {
+            case 'N':
+                orientationCharacter = 'W';
+                break;
+            case 'W':
+                orientationCharacter = 'S';
+                break;
+            case 'S':
+                orientationCharacter = 'E';
+                break;
+            case 'E':
+                orientationCharacter = 'N';
+                break;
+        }
+        return new Orientation(orientationCharacter);
+    }
+
+    Orientation moveRight() throws OrientationException {
+        switch (orientationCharacter) {
+            case 'N':
+                orientationCharacter = 'E';
+                break;
+            case 'W':
+                orientationCharacter = 'N';
+                break;
+            case 'S':
+                orientationCharacter = 'W';
+                break;
+            case 'E':
+                orientationCharacter = 'S';
+                break;
+        }
+        return new Orientation(orientationCharacter);
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

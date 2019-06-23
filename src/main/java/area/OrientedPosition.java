@@ -11,6 +11,14 @@ public class OrientedPosition {
         this.orientation = orientation;
     }
 
+    OrientedPosition moveLeft() throws OrientationException {
+        return new OrientedPosition(position,orientation.moveLeft());
+    }
+
+    OrientedPosition moveRight() throws OrientationException {
+        return new OrientedPosition(position,orientation.moveRight());
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
